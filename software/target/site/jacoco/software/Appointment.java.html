@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Appointment.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">software</a> &gt; <a href="index.source.html" class="el_package">software</a> &gt; <span class="el_source">Appointment.java</span></div><h1>Appointment.java</h1><pre class="source lang-java linenums">package software;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.sql.*;
+import java.util.Date;
+
+public class Appointment {    
+	ArrayList&lt;Service&gt; allservices;
+    ArrayList&lt;Service&gt; myServices;	
+<span class="nc" id="L12">    MainClass mainClass=null;</span>
+<span class="nc" id="L13">   public static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);</span>
+
+ //   Clinic clinic;
+	Date date, time; 
+	boolean accepted, addOrNot, visited; 
+<span class="nc" id="L18">    int adminID = 0;</span>
+<span class="nc" id="L19">    float invoice=0;</span>
+    String notes;
+
+ 
+<span class="nc" id="L23">   public Appointment(MainClass mainClass){</span>
+<span class="nc" id="L24">    	mainClass=this.mainClass;   </span>
+<span class="nc" id="L25">    	 allservices=new ArrayList&lt;Service&gt;(); </span>
+<span class="nc" id="L26">    	 myServices=new ArrayList&lt;Service&gt;();</span>
+<span class="nc" id="L27">    	 allservices=mainClass.AllServices();</span>
+<span class="nc" id="L28">    	accepted= false;</span>
+<span class="nc" id="L29">    	visited= false;</span>
+<span class="nc" id="L30">    	addOrNot= false;  	</span>
+<span class="nc" id="L31">    	notes=&quot;&quot;;</span>
+    	
+    	 try
+    	 {
+<span class="nc" id="L35">			date=new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).parse(&quot;2022-11-02&quot;);</span>
+<span class="nc" id="L36">			time = new SimpleDateFormat(&quot;hh:mm-hh:mm&quot;).parse(&quot;13:30-14:30&quot;);</span>
+<span class="nc" id="L37">		} catch (ParseException e) </span>
+    	 {
+<span class="nc" id="L39">			e.printStackTrace();</span>
+<span class="nc" id="L40">		} </span>
+    	  	 
+<span class="nc bnc" id="L42" title="All 2 branches missed.">    	 for(Service s:allservices) </span>
+    	 {
+<span class="nc" id="L44">    		 myServices.add(s);</span>
+    		
+<span class="nc" id="L46">    	 }</span>
+    	
+<span class="nc" id="L48">    }</span>
+   
+   // setters and getters 
+   
+   public void setVisited(boolean r) 
+	{
+<span class="nc" id="L54">		visited=r;</span>
+<span class="nc" id="L55">	}</span>
+
+
+	public void setNotes(String string) 
+	{
+<span class="nc" id="L60">		notes=string;</span>
+<span class="nc" id="L61">	}</span>
+
+	public void setAid (int adminID)
+	{
+<span class="nc" id="L65">		this.adminID = adminID;</span>
+<span class="nc" id="L66">	}</span>
+      public void setAddAppointment(boolean b)
+    {
+<span class="nc" id="L69">		addOrNot = b;</span>
+
+<span class="nc" id="L71">	}</span>
+      
+      public void setAccepted(boolean a) 
+    {
+<span class="nc" id="L75">    	accepted = a;</span>
+<span class="nc" id="L76">    }</span>
+      public void setDate(Date d) 
+	{
+<span class="nc" id="L79">		date=d;</span>
+<span class="nc" id="L80">	}</span>
+	
+      public void setTime(Date d)
+	{
+<span class="nc" id="L84">		time=d;</span>
+<span class="nc" id="L85">	}</span>
+    
+    public boolean getAddAppointment()
+    {
+<span class="nc bnc" id="L89" title="All 2 branches missed.">		return !(addOrNot); </span>
+	}
+    
+   
+    public boolean getAccepted()
+    {
+<span class="nc" id="L95">    	return accepted;</span>
+    }
+    
+	public Date getDate()
+	{	
+<span class="nc" id="L100">		return date;</span>
+	}
+	
+	public Date getTime() 
+	{	
+<span class="nc" id="L105">		return time;</span>
+	}
+	
+	public ArrayList&lt;Service&gt; getServices()
+	{
+<span class="nc" id="L110">		return myServices;</span>
+	}
+	public void setAppointmentInvoice(float price) 
+	{
+<span class="nc" id="L114">		invoice=price;	</span>
+<span class="nc" id="L115">	}</span>
+	
+	public float getAppointmentInvoice(int price)
+	{
+<span class="nc" id="L119">		return invoice;</span>
+		
+	}
+
+	public int getAid ()
+	{
+<span class="nc" id="L125">		return adminID;</span>
+
+	}
+	public boolean getVisited()
+	{
+<span class="nc" id="L130">		return visited;</span>
+	}
+	
+	public String getNotes() 
+	{
+<span class="nc" id="L135">		return notes;</span>
+	}
+	
+	// adding a service
+	
+	public void addService(String appointService)
+	{		
+<span class="nc bnc" id="L142" title="All 2 branches missed.">		for(Service s:myServices)</span>
+		{			
+<span class="nc bnc" id="L144" title="All 2 branches missed.">			if(s.getName().equalsIgnoreCase(appointService))</span>
+			{
+<span class="nc bnc" id="L146" title="All 2 branches missed.">				if(s.getIfChosen()==false) </span>
+				{
+<span class="nc" id="L148">					s.selectedbyCli(true);		</span>
+				}
+			}
+<span class="nc" id="L151">		}		</span>
+		
+<span class="nc" id="L153">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

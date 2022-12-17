@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Service.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">software</a> &gt; <a href="index.source.html" class="el_package">software</a> &gt; <span class="el_source">Service.java</span></div><h1>Service.java</h1><pre class="source lang-java linenums">package software;
+
+public class Service {
+	boolean buy,selected;
+	float price;
+	String sname;
+	int ID;
+
+	public Service()
+<span class="nc" id="L10">	{</span>
+<span class="nc" id="L11">		ID=0;</span>
+<span class="nc" id="L12">		price = 0;</span>
+<span class="nc" id="L13">		sname = &quot;&quot;;</span>
+<span class="nc" id="L14">		selected = false;</span>
+<span class="nc" id="L15">		buy = false; </span>
+		
+<span class="nc" id="L17">	}</span>
+	
+	public int getServID() 
+	{
+<span class="nc" id="L21">		return ID;</span>
+	}
+
+	public void setservID(int ID) 
+	{
+<span class="nc" id="L26">		ID=ID;</span>
+		
+<span class="nc" id="L28">	}</span>
+	public boolean getIfChosen()
+	{
+<span class="nc" id="L31">		return selected;</span>
+	}
+
+	public boolean getAdded() 
+	{
+
+<span class="nc bnc" id="L37" title="All 2 branches missed.">		return !(buy); </span>
+	}
+
+	public void setAdded(boolean h) 
+	{
+<span class="nc" id="L42">		buy = h;</span>
+
+<span class="nc" id="L44">	}</span>
+
+	public void setPrice(float price) 
+	{
+<span class="nc" id="L48">		price = price;</span>
+
+<span class="nc" id="L50">	}</span>
+
+	public void setName(String s2)
+	{
+<span class="nc" id="L54">		sname= s2;</span>
+
+<span class="nc" id="L56">	}</span>
+
+	public float getPrice() {
+<span class="nc" id="L59">		return price;</span>
+	}
+
+
+	public void selectedbyCli(boolean l)
+	{
+<span class="nc" id="L65">		selected =l;</span>
+
+<span class="nc" id="L67">	}</span>
+	
+	public String getName() 
+	{
+<span class="nc" id="L71">		return sname;</span>
+	}
+
+	
+
+	
+@Override
+	public String toString()
+	{
+<span class="nc" id="L80">		return sname + &quot;\t \t \t&quot; + String.valueOf(price)+&quot;\n&quot;;</span>
+	
+	}
+	
+	
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
